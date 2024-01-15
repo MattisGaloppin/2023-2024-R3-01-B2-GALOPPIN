@@ -14,6 +14,10 @@ class PokemonController {
         $view = new View('Search');
         $view->generer([]);
     }
+    public function displayDel(){
+        $view = new View('del');
+        $view->generer([]);
+    }
     public function addPokemon(array $infPoke){
         $mp = new PokemonManager();
     
@@ -30,6 +34,20 @@ class PokemonController {
                 $mess = 'Le Pokémon a été créé avec succès.';
             }
 
+    }
+    public function deletePokemonAndIndex(int $idPokemon){
+        $mp = new PokemonManager();
+        $success = $mp->deletePokemon($idPokemon);
+    
+        // Message à afficher
+        if ($success){
+            $mess =  'Le Pokémon a été supprimé avec succès.' ;
+        }
+        else {
+            $mess = 'Erreur lors de la suppression du Pokémon. Veuillez réessayer!';
+        }
+        $mc = new MainController();
+        $mc->displayIndex($mess);
     }
 }
 

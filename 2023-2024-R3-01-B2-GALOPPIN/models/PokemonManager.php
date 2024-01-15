@@ -82,5 +82,12 @@ class PokemonManager extends Model {
     return $pokemon;
      
 }
+public function deletePokemon(int $idPokemon = -1){
+      
+        $sql = 'DELETE FROM pokemons_g WHERE idPokemon = ?';
+        $params = [$idPokemon];
+        $stmt = $this->execRequest($sql, $params);
+    
+}
 }
 ?>
