@@ -41,12 +41,14 @@ class Router {
                 $this->routeList[$get['action']]->action();
             }
             else{
-                $this->routeList[$get['action']]->action($post, 'POST');
-            }
-        }
-            else{
                 $this->routeList['index']->action();
             }
+        }
+            
+            else{
+                $this->routeList[$get['action']]->action($post, 'POST');
+            }
+
         }
         
     }

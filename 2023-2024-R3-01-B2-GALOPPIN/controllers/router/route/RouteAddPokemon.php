@@ -18,18 +18,11 @@ class RouteAddPokemon extends Route {
         try {
             $data = $_POST;
             $controler = new PokemonController();
-            var_dump($data);
             $controler->addPokemon($data);
-            $this->controller->displayAddPokemon();
         }
         catch(Exception $e){
             $errorMessage = $e->getMessage();
-          //  $this->controller->displayAddPokemon($errorMessage);
-        }
-
-        $this->controller->displayAddPokemon();
-
-        
+        } 
     }
 }
 ?>

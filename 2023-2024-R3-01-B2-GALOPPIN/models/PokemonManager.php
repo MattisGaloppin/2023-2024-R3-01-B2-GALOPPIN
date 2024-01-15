@@ -74,7 +74,7 @@ class PokemonManager extends Model {
             //si un id est retourné
             if ($donnee !== false) {
                 //on ajoute les valeurs au pokemon et on le retourne
-                $pokemon->setIdPokemon($donnee['idPokemon']);
+                $pokemon->setIdPokemon($donnee['LAST_INSERT_ID()']);
 
             }
         

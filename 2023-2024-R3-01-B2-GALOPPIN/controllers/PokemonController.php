@@ -27,11 +27,8 @@ class PokemonController {
             $poke = $mp->createPokemon($pokemon);
             $mess = "Erreur lors de la création du Pokémon. Veuillez réessayer!";
             if ($poke !== null) {
-                $mess('Le Pokémon a été créé avec succès.');
+                $mess = 'Le Pokémon a été créé avec succès.';
             }
-           
-            $view = new View('AddPokemon');
-            $view->generer(['mess' => $mess]);
 
     }
 }
