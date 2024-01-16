@@ -26,7 +26,7 @@ class Router {
         $this->ctrlList["pokemon"] = new PokemonController();
         $this->ctrlList["type"] = new PokemonController();
         $this->ctrlList["searchP"] = new PokemonController();
-        $this->ctrlList["del"] = new PokemonController();
+        $this->ctrlList["pokemonD"] = new PokemonController();
     }
 
     // Crde la liste des routes
@@ -35,7 +35,7 @@ class Router {
         $this->routeList["add-pokemon"] = new RouteAddPokemon($this->ctrlList["pokemon"]);
         $this->routeList["add-pokemon-type"] = new RouteAddType($this->ctrlList["type"]);
         $this->routeList["search"] = new RouteSearch($this->ctrlList["searchP"]);
-        $this->routeList["del-pokemon"] = new RouteDelPokemon($this->ctrlList["del"]);
+        $this->routeList["del-pokemon"] = new RouteDelPokemon($this->ctrlList["pokemonD"]);
     }
     public function routing(array $get, array $post): void {
         if(empty($post)){
@@ -50,7 +50,7 @@ class Router {
             else{
                 $this->routeList[$get['action']]->action($post, 'POST');
             }
-
+            var_dump($get);
         }
         
     }

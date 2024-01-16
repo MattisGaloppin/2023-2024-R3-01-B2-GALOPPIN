@@ -4,6 +4,7 @@ require_once("controllers/router/Route.php");
 
 class RouteDelPokemon extends Route {
     private PokemonController $controller;
+    private MainController $main;
 
     public function __construct(PokemonController $controller) {
         parent::__construct();
@@ -11,18 +12,17 @@ class RouteDelPokemon extends Route {
     }
 
     public function get($params = []): void {
-        $this->controller->displayDel();
+        $mainC = new PokemonController();
+        $road = new Route();
+        var_dump($params);
+        $mainC->deletePokemonAndIndex($params['idPokemon']);
+        $this->main->displayIndex();
     }
 
-    public function post($params = []): void {
-        try {
-            $data = $_POST;
-            $controler = new PokemonController();
-            $controler->deletePokemonAndIndex($data[]);
-        }
-        catch(Exception $e){
-            $errorMessage = $e->getMessage();
-        } 
+    public function post($params = []):void{
+
     }
+
+
 }
 ?>
